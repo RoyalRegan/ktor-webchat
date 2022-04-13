@@ -1,15 +1,15 @@
 package jaju.com.webchat
 
-import io.ktor.server.engine.*
+import io.ktor.server.application.*
 import io.ktor.server.netty.*
 import jaju.com.webchat.plugins.*
 
-fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
-        configureRouting()
-        configureMonitoring()
-        configureSerialization()
-        configureSockets()
-        configureTemplating()
-    }.start(wait = true)
+fun main(args: Array<String>): Unit = EngineMain.main(args)
+
+fun Application.module() {
+    configureRouting()
+    configureMonitoring()
+    configureSerialization()
+    configureSockets()
+    configureTemplating()
 }
