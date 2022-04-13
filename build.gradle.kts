@@ -15,7 +15,7 @@ repositories {
 
 val ktorVersion: String by project
 val kotlinVersion: String = KotlinCompilerVersion.VERSION
-val logbackVersion: String by project
+val log4jVersion: String by project
 val prometheusVersion: String by project
 
 dependencies {
@@ -27,7 +27,9 @@ dependencies {
     implementation("io.ktor:ktor-server-thymeleaf-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     implementation("io.micrometer:micrometer-registry-prometheus:$prometheusVersion")
-    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("org.apache.logging.log4j:log4j-api:$log4jVersion")
+    implementation("org.apache.logging.log4j:log4j-core:$log4jVersion")
+    implementation("org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion")
 
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktorVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
